@@ -59,7 +59,7 @@ function checkRequiredPackages() {
     echo -ne "$coloredHostname > Checking for required packages : "
     for package in $requiredPackages
     do
-        check="$(pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")";        
+        check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")";        
         if [ -z "${check}" ] ; then missingPackages+=${package} fi;
     done
 
@@ -70,7 +70,7 @@ function checkRequiredPackages() {
     for package in $missingPackages
     do
         echo -ne "$space > Dependency $package is not installed, downloading - "
-        echo y | pacman -S $package &> /dev/null
+        yes "" | sudo pacman -S $package &> /dev/null
         printSuccessOrFailure       
     done
 
@@ -99,6 +99,7 @@ function checkRequiredFolders() {
 
 #⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶
 
+sudo echo
 checkRequiredFolders
 checkRequiredPackages
 
@@ -115,5 +116,5 @@ git clone https://github.com/Alvin-Schnee/dotfiles.git &> /dev/null
 printSuccessOrFailure
 
 while read -A line; do
-    sudo mv dotfiles/${line[1]}/${line[2]} ${line[3]}
+    sudo mv dotfiles/${line[1]}/${line[2]} "${line[3]}"
 done < $dotfile
