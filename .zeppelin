@@ -1,2 +1,2 @@
 polybar config /home/$USER/.config/polybar/
-bspwm bspwmrc /home/$USER/.config/bspwm
+bspwm bspwmrc /home/$USER/.config/bspwm/
