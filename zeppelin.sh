@@ -38,10 +38,10 @@ for i in `seq 1 ${#hostname}`; do
     space+=' ' 
 done
 
-requiredFolders=("/home/alvin/.foxehcorp/zeppelin/")
+requiredFolders=("/home/$USER/.foxehcorp/zeppelin/")
 requiredPackages=("git")
 missingPackages=()
-dotfile="/home/alvin/.foxehcorp/zeppelin/.zeppelin"
+dotfile="/home/$USER/.foxehcorp/zeppelin/.zeppelin"
 
 #⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶
 
@@ -102,9 +102,9 @@ function checkRequiredFolders() {
 checkRequiredFolders
 checkRequiredPackages
 
-cd /home/alvin/.foxehcorp/zeppelin/
+cd /home/$USER/.foxehcorp/zeppelin/
 
-ls -a "/home/alvin/.foxehcorp/zeppelin/dotfiles" &> /dev/null
+ls -a "/home/$USER/.foxehcorp/zeppelin/dotfiles" &> /dev/null
 
 if [ $? -eq 0 ]; then
     rm -rf dotfiles
