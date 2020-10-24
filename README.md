@@ -1,7 +1,10 @@
 # zeppelin
 
 ## Installation Guide
-* Clone
-* u
-* u
-* u
+Move to ~/.foxehcorp 
+
+> `cd ~/foxehcorp`
+
+Clone the repository 
+
+> `git clone https://github.com/Alvin-Schnee/zeppelin.git`
