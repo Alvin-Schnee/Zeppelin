@@ -116,5 +116,6 @@ git clone https://github.com/Alvin-Schnee/dotfiles.git &> /dev/null
 printSuccessOrFailure
 
 while read -A line; do
+    sudo chmod +x dotfiles/${line[1]}/${line[2]}
     sudo mv dotfiles/${line[1]}/${line[2]} "${line[3]}"
 done < $dotfile
