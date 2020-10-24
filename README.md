@@ -1,4 +1,4 @@
-# zeppelin
+# Zeppelin
 
 ## Installation Guide
 Move to ~/.foxehcorp, then clone the repository. 
