@@ -1,2 +1,1 @@
-polybar config /home/alvin/.config/polybar/
-bspwm bspwmrc /home/alvin/.config/bspwm/
+i3 config /home/alvin/.i3/
