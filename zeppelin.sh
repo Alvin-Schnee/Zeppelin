@@ -99,7 +99,7 @@ function checkRequiredFolders() {
 
 #⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶⠶
 
-sudo su
+sudo echo
 checkRequiredFolders
 checkRequiredPackages
 
@@ -108,15 +108,15 @@ cd /home/$USER/.foxehcorp/zeppelin/
 ls -a "/home/$USER/.foxehcorp/zeppelin/dotfiles" &> /dev/null
 
 if [ $? -eq 0 ]; then
-    rm -rf /home/$USER/.foxehcorp/zeppelin/dotfiles
+    sudo rm -rf /home/$USER/.foxehcorp/zeppelin/dotfiles
 fi
 
 echo -ne "$coloredHostname > Downloading dotfiles : "
-git clone https://github.com/Alvin-Schnee/dotfiles.git &> /dev/null
+sudo git clone https://github.com/Alvin-Schnee/dotfiles.git &> /dev/null
 printSuccessOrFailure
 
 while read -A line; do
-    chmod +x dotfiles/${line[1]}/${line[2]}
-    mv dotfiles/${line[1]}/${line[2]} "${line[3]}"
+    sudo chmod +x dotfiles/${line[1]}/${line[2]}
+    sudo mv dotfiles/${line[1]}/${line[2]} "${line[3]}"
 done < $dotfile
 exit
